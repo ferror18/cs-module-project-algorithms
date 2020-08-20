@@ -3,12 +3,17 @@ def verbose(myFunction, prt_able_i, do=False):
     if do:
         print(f'{myFunction.__name__} --> {prt_able_i}')
 import sys
+from itertools import product
 
+# The One liner
 def rock_paper_scissors(n):
   # Your code here
+  return [list(item) for item in product(['rock', 'paper', 'scissors'], repeat=n)]
 
-  for i in n:
-    print(i)
+#
+def rock_paper_scissors(n):
+  # Your code here
+  return [list(item) for item in product(['rock', 'paper', 'scissors'], repeat=n)]
 
 
 if __name__ == "__main__":

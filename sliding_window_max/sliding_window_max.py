@@ -1,11 +1,28 @@
+def verbose(myFunction, prt_able_i, do=False):
+    if do:
+        print(f'{myFunction.__name__} --> {prt_able_i}')
 '''
 Input: a List of integers as well as an integer `k` representing the size of the sliding window
 Returns: a List of integers
 '''
 def sliding_window_max(nums, k):
     # Your code here
+    maximums = []
+    for i in range(len(nums)-k+1):
+        window = nums[i:i+k]
+        cur_max = None
+        verbose(sliding_window_max, f'Arr: {nums}\nWindow indexes: ({i},{i+k}) --> {window}')
+        for x in window:
+            if None == cur_max:
+                cur_max = x
+            else:
+                cur_max = x if x > cur_max else cur_max
+        maximums.append(cur_max)
+        cur_max = None
+        verbose(sliding_window_max, f'CurMax: {cur_max} | {maximums}\n\n\n\t\t--=== window shift rigth --> ===-- \n\n')
+    return maximums
 
-    pass
+        
 
 
 if __name__ == '__main__':
